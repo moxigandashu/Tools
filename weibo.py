@@ -7,19 +7,20 @@ Created on Thu Apr 26 10:40:04 2018
 import os
 from selenium import webdriver
 
-username=input('input username:')
-password=input('input password:')
-os.chdir(r'E:\code\Tools\chromedriver')
+
+#os.chdir(r'E:\code\Tools\chromedriver')
 options=webdriver.ChromeOptions()
 #设置webdriver参数
-opener=webdriver.Chrome(r'D:\Software\chromedriver.exe',chrome_options=options)
+opener=webdriver.Chrome(r'D:\Tools\chromedriver.exe',chrome_options=options)
 opener.maximize_window()
 opener.get('https://www.weibo.com')
 opener.implicitly_wait(5)
+username=input('input username:')
+pword=input('input password:')
 acountname=opener.find_element_by_css_selector('#loginname')
 acountname.send_keys(username)
 password=opener.find_element_by_name('password')
-password.send_keys(password)
+password.send_keys(pword)
 login=opener.find_element_by_css_selector('a[class="W_btn_a btn_32px"]')
 login.click()
 opener.implicitly_wait(3)
